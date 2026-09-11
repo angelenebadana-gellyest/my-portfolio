@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Angelene Badana — architectural drafter and designer." />
+  <title>Angelene Badana | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        if (saved === "light" || (!saved && prefersLight)) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a href="#home" class="nav-logo">Angelene<span>.</span></a>
+    <nav class="nav-links" id="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#education" class="nav-link">Education</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content reveal">
+        <p class="hero-greeting">Hello, I&rsquo;m</p>
+        <h1 class="hero-name">Angelene Badana</h1>
+        <p class="hero-title">Multi-Media Artist</p>
+        <p class="hero-bio">Improvement is built from wisdom, gained from repetition.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+      <div class="hero-portrait reveal">
+        <div class="portrait-ring">
+          <img
+            src="images/profile/profile_images.png"
+            alt="Portrait of Angelene Badana"
+            class="portrait-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-header reveal">
+        <span class="section-tag">Introduction</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo reveal">
+          <img
+            src="images/profile/profile_images.png"
+            alt="Angelene Badana smiling"
+          />
+        </div>
+        <div class="about-text reveal">
+          <p>
+            I&rsquo;m Angelene Badana. I believe improvement is born from wisdom,
+            and wisdom is born from repetition. Every project is a chance to refine
+            a craft, learn from the process, and build something that lasts.
+          </p>
+          <p>
+            I love turning ideas into clean, thoughtful designs that are
+            both functional and pleasing to the eye.
+          </p>
+          <ul class="about-facts">
+            <li><strong>Name:</strong> Angelene Badana</li>
+            <li><strong>Focus:</strong> Architectural Drafting &amp; Artist</li>
+            <li><strong>Languages:</strong> English (90%), Tagalog (90%), Bisaya (100%)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+      <div class="section-header reveal">
+        <span class="section-tag">What I Do</span>
+        <h2 class="section-title">Skills</h2>
+      </div>
+      <div class="skills-grid" id="skills-grid"></div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-header reveal">
+        <span class="section-tag">Learning Journey</span>
+        <h2 class="section-title">Educational Background</h2>
+      </div>
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <div class="edu-icon">🏫</div>
+          <div>
+            <h3 class="edu-level">Secondary</h3>
+            <p class="edu-school">Cabadbaran City National High School</p>
+          </div>
+        </article>
+        <article class="edu-card reveal">
+          <div class="edu-icon">🎓</div>
+          <div>
+            <h3 class="edu-level">Tertiary</h3>
+            <p class="edu-school">Caraga State University &mdash; Cabadbaran Campus</p>
+            <p class="edu-degree">Bachelor of Industrial Technology Major in Architectural Drafting Technology</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-header reveal">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="section-header reveal">
+        <span class="section-tag">Say Hello</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
+      <div class="contact-card reveal">
+        <p class="contact-intro">
+          Have a project in mind or just want to say hi? I&rsquo;d love to hear from you.
+        </p>
+        <a href="tel:+639816541974" class="btn btn-primary">Call 0981 654 1974</a>
+        <div class="contact-links">
+          <a href="https://www.facebook.com/AngelBadsnx17" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://instagram.com/gelly_esttt/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://github.com/angelenebadana-gellyest" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:angelenebadana@gmail.com">Email</a>
+        </div>
+        <p class="contact-note">Available for freelance work and collaborations.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="https://www.facebook.com/AngelBadsnx17" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://instagram.com/gelly_esttt/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://github.com/angelenebadana-gellyest" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p>&copy; <span id="year"></span> Angelene Badana. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
