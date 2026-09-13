@@ -117,6 +117,7 @@ const categoryLabels = {
   d: "Personal Art",
   collab: "Collaborations",
   painting: "Digital Paintings",
+  certificate: "Certificates",
 };
 
 const galleryItems = [
@@ -195,25 +196,41 @@ const certificateItems = [
     description:
       "Secured 1st Place by conceptualizing and designing a visual artwork that highlighted science, technology, and innovation as drivers of sustainable development.",
   },
+  ...Array.from({ length: 8 }, (_, i) => ({
+    src: `${certificateBase}ADDCERT${i + 1}.jpg`,
+    title: `Online Art Collaboration Certificate No. ${i + 1}`,
+    category: "certificate",
+    badge: "Certificate of Participation",
+    description:
+      "Awarded for participating in an online art collaboration, contributing a personal artwork to a shared artistic project.",
+  })),
 ];
 
 const workTabs = document.getElementById("work-tabs");
 const workGrid = document.getElementById("work-grid");
+
+const workItems = [...galleryItems, ...certificateItems];
 
 function getActiveFilter() {
   const active = workTabs.querySelector(".work-tab.active");
   return active ? active.dataset.filter : "all";
 }
 
-function renderGallery(filter) {
-  workGrid.innerHTML = "";
-  const items = galleryItems.filter(
+function getFilteredItems(filter) {
+  return workItems.filter(
     (item) => filter === "all" || item.category === filter
   );
+}
+
+function renderGallery(filter) {
+  workGrid.innerHTML = "";
+  const items = getFilteredItems(filter);
 
   items.forEach((item, index) => {
     const card = document.createElement("figure");
-    card.className = "work-card reveal";
+    card.className = `work-card reveal${
+      item.category === "certificate" ? " work-card--cert" : ""
+    }`;
     card.dataset.category = item.category;
     card.dataset.index = String(index);
     card.innerHTML = `
@@ -245,10 +262,7 @@ let activeIndex = 0;
 let activeItems = [];
 
 function currentItems() {
-  const filter = getActiveFilter();
-  return galleryItems.filter(
-    (item) => filter === "all" || item.category === filter
-  );
+  return getFilteredItems(getActiveFilter());
 }
 
 function updateLightbox() {
@@ -305,10 +319,10 @@ function renderCertificates() {
       <div class="cert-body">
         <span class="cert-badge">${item.badge}</span>
         <h3 class="cert-name">${item.title}</h3>
-        <p class="cert-meta"><strong>${item.issuer}</strong></p>
-        <p class="cert-meta">${item.date}</p>
-        <p class="cert-theme"><em>${item.theme}</em></p>
-        <p class="cert-desc">${item.description}</p>
+        ${item.issuer ? `<p class="cert-meta"><strong>${item.issuer}</strong></p>` : ""}
+        ${item.date ? `<p class="cert-meta">${item.date}</p>` : ""}
+        ${item.theme ? `<p class="cert-theme"><em>${item.theme}</em></p>` : ""}
+        ${item.description ? `<p class="cert-desc">${item.description}</p>` : ""}
       </div>
     `;
     certGrid.appendChild(card);

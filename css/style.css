@@ -562,6 +562,16 @@ img {
   color: #fff;
 }
 
+.work-card--cert {
+  aspect-ratio: 4 / 3;
+}
+
+.work-card--cert img {
+  object-fit: contain;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--cover-start), var(--cover-end));
+}
+
 /* ---------- Certifications ---------- */
 .edu-divider {
   height: 1px;
