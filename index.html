@@ -12,17 +12,6 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
-  <script>
-    (function () {
-      try {
-        var saved = localStorage.getItem("theme");
-        var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-        if (saved === "light" || (!saved && prefersLight)) {
-          document.documentElement.setAttribute("data-theme", "light");
-        }
-      } catch (e) {}
-    })();
-  </script>
 </head>
 <body>
   <header class="nav" id="nav">
@@ -32,11 +21,11 @@
       <a href="#about" class="nav-link">About</a>
       <a href="#skills" class="nav-link">Skills</a>
       <a href="#education" class="nav-link">Education</a>
+      <a href="#work" class="nav-link">Work</a>
       <a href="#projects" class="nav-link">Projects</a>
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
     <div class="nav-actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
       <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -51,7 +40,7 @@
         <p class="hero-title">Multi-Media Artist</p>
         <p class="hero-bio">Improvement is built from wisdom, gained from repetition.</p>
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#work" class="btn btn-primary">View My Work</a>
           <a href="#contact" class="btn btn-outline">Contact Me</a>
         </div>
       </div>
@@ -91,7 +80,7 @@
           <ul class="about-facts">
             <li><strong>Name:</strong> Angelene Badana</li>
             <li><strong>Focus:</strong> Architectural Drafting &amp; Artist</li>
-            <li><strong>Languages:</strong> English (90%), Tagalog (90%), Bisaya (100%)</li>
+            <li><strong>Languages:</strong> English (100%), Tagalog (50%), Bisaya (100%)</li>
           </ul>
         </div>
       </div>
@@ -127,9 +116,31 @@
           </div>
         </article>
       </div>
+
+      <div class="edu-divider"></div>
+
+      <div class="section-header reveal">
+        <span class="section-tag">Achievements</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="cert-grid" id="cert-grid"></div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="work" class="section">
+      <div class="section-header reveal">
+        <span class="section-tag">My Work</span>
+        <h2 class="section-title">Drawing Highlights</h2>
+      </div>
+      <div class="work-tabs reveal" id="work-tabs" role="tablist">
+        <button class="work-tab active" data-filter="all" role="tab">All</button>
+        <button class="work-tab" data-filter="d" role="tab">Personal Art</button>
+        <button class="work-tab" data-filter="collab" role="tab">Collaborations</button>
+        <button class="work-tab" data-filter="painting" role="tab">Digital Paintings</button>
+      </div>
+      <div class="work-grid" id="work-grid"></div>
+    </section>
+
+    <section id="projects" class="section section-alt">
       <div class="section-header reveal">
         <span class="section-tag">My Work</span>
         <h2 class="section-title">Projects</h2>
@@ -157,6 +168,16 @@
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <figure class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next">›</button>
+  </div>
 
   <footer class="footer">
     <div class="footer-links">
