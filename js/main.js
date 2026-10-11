@@ -1,3 +1,20 @@
+const themeToggle = document.getElementById("theme-toggle");
+
+function getTheme() {
+  return document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark";
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+}
+
+setTheme(getTheme());
+
+themeToggle.addEventListener("click", () => {
+  setTheme(getTheme() === "light" ? "dark" : "light");
+});
+
 const skills = [
   { name: "Architectural Drafting Technology", icon: "📐", level: 85 },
   { name: "Drawing", icon: "✏️", level: 90 },
@@ -126,11 +143,15 @@ const galleryItems = [
     title: `Artwork D${i + 1}`,
     category: "d",
   })),
-  ...Array.from({ length: 10 }, (_, i) => ({
-    src: `${imageBase}COLLAB${i + 1}.${i + 1 === 8 ? "jpg" : "png"}`,
-    title: `Collaboration ${i + 1}`,
-    category: "collab",
-  })),
+  ...Array.from({ length: 11 }, (_, i) => {
+    const n = i + 1;
+    const ext = n === 8 || n === 11 ? "jpg" : "png";
+    return {
+      src: `${imageBase}COLLAB${n}.${ext}`,
+      title: `Collaboration ${n}`,
+      category: "collab",
+    };
+  }),
   ...Array.from({ length: 6 }, (_, i) => ({
     src: `${imageBase}PAINTING${i + 1}.png`,
     title: `Painting ${i + 1}`,
@@ -204,6 +225,14 @@ const certificateItems = [
     description:
       "Awarded for participating in an online art collaboration, contributing a personal artwork to a shared artistic project.",
   })),
+  {
+    src: `${certificateBase}ML.jpg`,
+    title: "Online Art Collaboration Certificate No. 9",
+    category: "certificate",
+    badge: "Certificate of Participation",
+    description:
+      "Awarded for participating in an online art collaboration, contributing a personal artwork to a shared artistic project.",
+  },
 ];
 
 const workTabs = document.getElementById("work-tabs");
